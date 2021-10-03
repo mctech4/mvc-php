@@ -4,7 +4,8 @@ class app {
   public static function error() {
     print 'Page Not Found';
   }
-  public static function run($route) { 
+  public static function run() {
+    $route = isset($_GET["route"]) ? $_GET["route"] : "";
     $path = 'lib/app/controllers/';
     $route = explode("/", $route);
     $class = !empty($route[0]) ? $route[0].'Controller' : 'indexController';
